@@ -1,0 +1,2 @@
+morrendo();
+other.morrendo();

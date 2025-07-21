@@ -1,0 +1,1 @@
+instance_create_layer(144,-120,"Inimigos",obj_boss1);
