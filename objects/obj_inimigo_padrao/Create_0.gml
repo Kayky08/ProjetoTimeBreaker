@@ -1,37 +1,14 @@
 #region variaveis
-vidas = 2;
-
 //Tiro
 timer_tiro = 0;
-espera_tiro = 120;
 
 //Descobrindo se o inimigo esta numa sequencia
 criado_sequencia = in_sequence;
-
 #endregion
 
 #region metodos
 atirar = function(){
-	////verficia se o tempo do tiro esta zerado
-	//if(timer_tiro < 0){
-	//	//cria o tiro
-	//	var _tiro = instance_create_layer(x,y,"Tiro",obj_tiro_inimigo)
-	
-	//	//define uma velocidade para o tiro
-	//	_tiro.vspeed = 5;
-		
-	//	//reinicia o timer
-	//	timer_tiro = espera_tiro;
-	//}
-	
-	//criando o tiro
-	var _tiro = instance_create_layer(x,y,"Tiro",obj_tiro_inimigo)
-	
-	//definindo a velocidade do tiro
-	_tiro.vspeed = 5;
-	
-	//Dando play no som
-	audio_play_sound(snd_tiro_2,1,false);
+	atirando(obj_tiro_inimigo,5,snd_tiro_2, 3);
 }
 
 morrendo = function(){

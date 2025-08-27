@@ -38,4 +38,18 @@ function drop(chance,powerup){
 		_powerup.vspeed = 3;
 	}
 }
+	
+function atirando(obj_tiro,tiro_velocidade,tiro_som,tiro_repeticao = 1, repeticao){	
+	repeat(tiro_repeticao){
+		//criando o tiro
+		var _tiro = instance_create_layer(x+repeticao,y,"Tiro",obj_tiro)
+	
+		//definindo a velocidade do tiro
+		_tiro.vspeed = tiro_velocidade;
+	
+		//Dando play no som
+		audio_play_sound(tiro_som,1,false);
+	}
+}
+
 #endregion
