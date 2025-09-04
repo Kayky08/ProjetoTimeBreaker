@@ -1,10 +1,12 @@
 #region variaveis
 vidas = 10;
 estado = "chegando";
+
 tempo_carregando = game_get_speed(gamespeed_fps) * .8;
 timer_carregando = 0;
 contador = 0;
 decidindo_direcao = false;
+
 criado_sequencia = in_sequence;
 #endregion
 
@@ -51,8 +53,6 @@ maquina_de_estado = function(){
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir + 90;
 			}
-			
-			//Verificando se o inimigo ja deu 3 tiros
 			
 			//trocando o estado
 			estado = "carregando";

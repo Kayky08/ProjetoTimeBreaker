@@ -39,17 +39,15 @@ function drop(chance,powerup){
 	}
 }
 	
-function atirando(obj_tiro,tiro_velocidade,tiro_som,tiro_repeticao = 1, repeticao){	
-	repeat(tiro_repeticao){
-		//criando o tiro
-		var _tiro = instance_create_layer(x+repeticao,y,"Tiro",obj_tiro)
+function atirar(tiro,tiro_velocidade,tiro_som,_x = 0,_y = 0){			
+	//criando o tiro
+	var _tiro = instance_create_layer(x+_x,y+_y,"Tiro",tiro)
 	
-		//definindo a velocidade do tiro
-		_tiro.vspeed = tiro_velocidade;
+	//definindo a velocidade do tiro
+	_tiro.vspeed = tiro_velocidade;
 	
-		//Dando play no som
-		audio_play_sound(tiro_som,1,false);
-	}
+	//Dando play no som
+	audio_play_sound(tiro_som,1,false);
 }
 
 #endregion

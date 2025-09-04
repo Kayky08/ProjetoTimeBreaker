@@ -1,17 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_sistema",
+  "%Name":"obj_oni",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_sistema",
+  "name":"obj_oni",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sistemas",
-    "path":"folders/Objects/Sistemas.yy",
+    "name":"Inimigos",
+    "path":"folders/Objects/Inimigos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_entidade_inimigo",
+    "path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_oni",
+    "path":"sprites/spr_oni/spr_oni.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

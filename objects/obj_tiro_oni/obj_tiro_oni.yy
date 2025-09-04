@@ -1,17 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_sistema",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_tiro_oni",
+  "eventList":[],
   "managed":true,
-  "name":"obj_sistema",
+  "name":"obj_tiro_oni",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sistemas",
-    "path":"folders/Objects/Sistemas.yy",
+    "name":"Inimigos",
+    "path":"folders/Objects/Inimigos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_tiro_inimigo",
+    "path":"objects/obj_tiro_inimigo/obj_tiro_inimigo.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_tiro_oni",
+    "path":"sprites/spr_tiro_oni/spr_tiro_oni.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
