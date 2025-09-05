@@ -2,7 +2,6 @@
 global.debug = false;
 global.pontos = 0;
 global.musica = false;
-
 #endregion
 
 #region funções
@@ -13,7 +12,6 @@ function sendo_destruido(particula = obj_explosao){
 	//criando uma marticula
 	instance_create_layer(x,y,"Particulas",particula); 
 }
-
 function screenshake(_tremer = 1){
 	if instance_exists(obj_screenshake){
 		//Passando se a instancia do objeto screenshake existe
@@ -26,7 +24,6 @@ function screenshake(_tremer = 1){
 		}
 	}
 }
-
 function drop(chance,powerup){
 	//Criando a chance de drop
 	var _chance = random(100);
@@ -38,7 +35,6 @@ function drop(chance,powerup){
 		_powerup.vspeed = 3;
 	}
 }
-	
 function atirar(tiro,tiro_velocidade,tiro_som,_x = 0,_y = 0){			
 	//criando o tiro
 	var _tiro = instance_create_layer(x+_x,y+_y,"Tiro",tiro)
@@ -49,5 +45,4 @@ function atirar(tiro,tiro_velocidade,tiro_som,_x = 0,_y = 0){
 	//Dando play no som
 	audio_play_sound(tiro_som,1,false);
 }
-
 #endregion

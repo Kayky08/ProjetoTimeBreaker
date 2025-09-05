@@ -9,8 +9,8 @@
   "name":"obj_area_explosao",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigos",
-    "path":"folders/Objects/Inimigos.yy",
+    "name":"Antigos",
+    "path":"folders/Objects/Inimigos/Antigos.yy",
   },
   "parentObjectId":{
     "name":"obj_explosao_3",

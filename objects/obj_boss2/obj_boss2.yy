@@ -10,8 +10,8 @@
   "name":"obj_boss2",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigos",
-    "path":"folders/Objects/Inimigos.yy",
+    "name":"Antigos",
+    "path":"folders/Objects/Inimigos/Antigos.yy",
   },
   "parentObjectId":{
     "name":"obj_boss1",
