@@ -1,6 +1,6 @@
 {
   "$GMSequence":"v1",
-  "%Name":"sq_wave_1",
+  "%Name":"sq_f1_wave_6",
   "autoRecord":true,
   "backdropHeight":512,
   "backdropImageOpacity":0.5,
@@ -24,10 +24,10 @@
     "resourceType":"KeyframeStore<MomentsEventKeyframe>",
     "resourceVersion":"2.0",
   },
-  "name":"sq_wave_1",
+  "name":"sq_f1_wave_6",
   "parent":{
     "name":"Fase1",
-    "path":"folders/Sequences/Antigo/Mundo1/Fase1.yy",
+    "path":"folders/Sequences/Mundo1/Fase1.yy",
   },
   "playback":0,
   "playbackSpeed":60.0,
