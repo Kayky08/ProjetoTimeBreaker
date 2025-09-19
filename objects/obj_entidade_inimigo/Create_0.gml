@@ -1,4 +1,8 @@
 #region variaveis
+//Posição inicial
+_x = x
+_y = y
+
 //Tiro
 timer_tiro = 0;
 
@@ -10,35 +14,48 @@ criado_sequencia = in_sequence;
 maquina_estado = function(){
 	switch(estado){
 		case "movendo":
-			//Verificando se o inimigo esta parado
-			if(hspeed = 0 && vspeed = 0){
+			//Verificando se o objeto esta se movendo
+			if (x != _x || y != _y){
+				//Trocando de estado
+				estado = "movendo"
+			}
+			else{
 				//Trocando de estado
 				estado = "carregando";
 			}
 		break;
 		
 		case "carregando":
-			//Aumentando o timer de carregamento
-			timer_tiro++
-			
 			//Verificando se o timer chegou no limite de tempo
-			if(timer_tiro >= espera_tiro){
-				//Trocando de estado
-				estado = "atirando";
+			if (x != _x || y != _y){
+				estado = "movendo"
+			}
+			else{
+				//Aumentando o timer de carregamento
+				timer_tiro++
 				
-				//Zerando o timer		
-				timer_tiro = 0;
-			}	
+				if(timer_tiro >= espera_tiro){
+					//Trocando de estado
+					estado = "atirando";
+					
+					//Zerando o timer		
+					timer_tiro = 0;
+				}
+			}
 		break;
 		
 		case "atirando":
 			//Chamando a função para criar o tiro
-			atirar(obj_tiro_inimigo,vel_tiro,snd_tiro_1,0)
+			atirar(obj_tiro_oni,vel_tiro,snd_tiro_1,0,0)
 			
 			//Trocando de estado
 			estado = "carregando";
 		break;
 	}
+	
+	//Verificando a posição atual
+	_x = x
+	_y = y
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida

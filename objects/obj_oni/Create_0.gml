@@ -9,14 +9,6 @@ criado_sequencia = in_sequence;
 #region metodos
 maquina_estado = function(){
 	switch(estado){
-		case "movendo":
-			//Verificando se o inimigo esta parado
-			if(hspeed = 0 && vspeed = 0){
-				//Trocando de estado
-				estado = "carregando";
-			}
-		break;
-		
 		case "carregando":
 			//Aumentando o timer de carregamento
 			timer_tiro++
@@ -25,10 +17,10 @@ maquina_estado = function(){
 			if(timer_tiro >= espera_tiro){
 				//Trocando de estado
 				estado = "atirando";
-				
+					
 				//Zerando o timer		
 				timer_tiro = 0;
-			}	
+			}
 		break;
 		
 		case "atirando":
