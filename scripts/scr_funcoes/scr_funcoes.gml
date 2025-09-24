@@ -2,6 +2,7 @@
 global.debug = false;
 global.pontos = 0;
 global.musica = false;
+global.fase_anterior = room;
 #endregion
 
 #region funções

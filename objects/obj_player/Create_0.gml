@@ -156,7 +156,7 @@ perde_vida = function(){
 	audio_play_sound(snd_hit,1,false);
 	
 	//Fazendo a tela tremer quando leva um dano
-	screenshake(20); 
+	screenshake(20);
 	
 	//verificando se o player esta invensivel
 	if(timer_invensivel > 0) return;
@@ -169,12 +169,15 @@ perde_vida = function(){
 		//Perdendo vida e definindo o tempo de invencibilidade
 		timer_invensivel = tempo_invensivel;
 	}
-	if vidas <= 0{
-		//chamando a função de se autodestruir
+	if (vidas <= 0){
+		//Chamando a função de se autodestruir
 		sendo_destruido(obj_explosao);
 		
 		//Fazendo a tela tremer quando leva um dano
-		screenshake(50); 
+		screenshake(50);
+		
+		//Indo para a tela de morte
+		room_goto(rm_morte);
 	}
 }
 
@@ -204,7 +207,7 @@ com_escudo = function(){
 		meu_escudo = noone;
 	}
 }
-	
+
 morrendo = function(){
 	sendo_destruido(obj_explosao_1);
 }

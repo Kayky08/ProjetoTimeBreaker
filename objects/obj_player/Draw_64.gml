@@ -7,6 +7,8 @@ if (global.debug){
 	
 	//Debug da vida
 	draw_text(0,30, "Vidas:" + string(vidas));
+	
+	draw_text(0,45, "Room:" + string(global.fase_anterior));
 }
 //Pegando a altura da interface
 var _gui_height = display_get_gui_height();
