@@ -1,3 +1,3 @@
 morrendo();
 
-other.morrendo();
+other.perde_vida();
