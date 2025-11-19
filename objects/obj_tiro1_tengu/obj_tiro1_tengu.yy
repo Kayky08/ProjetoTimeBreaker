@@ -6,14 +6,16 @@
   ],
   "managed":true,
   "name":"obj_tiro1_tengu",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_tiro_inimigo","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"propertyId":{"name":"explosao","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"resource":{"name":"obj_exp_tiro_tengu","path":"objects/obj_exp_tiro_tengu/obj_exp_tiro_tengu.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_exp_tiro_tengu",},
+  ],
   "parent":{
     "name":"Inimigos",
     "path":"folders/Objects/Inimigos.yy",
   },
   "parentObjectId":{
-    "name":"obj_tiro_inimigo",
-    "path":"objects/obj_tiro_inimigo/obj_tiro_inimigo.yy",
+    "name":"obj_entidade_tiro_inimigo",
+    "path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

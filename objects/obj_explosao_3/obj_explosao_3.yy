@@ -8,8 +8,8 @@
   "name":"obj_explosao_3",
   "overriddenProperties":[],
   "parent":{
-    "name":"Particulas",
-    "path":"folders/Objects/Particulas.yy",
+    "name":"explosoes",
+    "path":"folders/Objects/Efeitos/explosoes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

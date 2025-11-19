@@ -14,8 +14,7 @@ repeat(5){
 	var _tiro = instance_create_layer(x,y,"Tiro",obj_tiro1_tengu)
 	
 	_tiro.speed = 5;
-	_tiro.image_angle = _angulo
 	_tiro.direction = _angulo
-	
+	_tiro.image_angle = _angulo + 90
 	_angulo += 72;
 }

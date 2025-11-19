@@ -15,7 +15,7 @@ atirando = function(){
 	//verficia se o tempo do tiro esta zerado
 	if(timer_tiro < 0){
 		//cria o tiro
-		var _tiro = instance_create_layer(x,y,"Tiro",obj_tiro_inimigo)
+		var _tiro = instance_create_layer(x,y,"Tiro",obj_entidade_tiro_inimigo)
 	
 		//define uma velocidade para o tiro
 		_tiro.vspeed = 5;

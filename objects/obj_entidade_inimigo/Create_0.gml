@@ -1,7 +1,5 @@
 #region variaveis
-//Posição inicial
-_x = x
-_y = y
+global.qtd_inimigos += 1;
 
 //Tiro
 timer_tiro = 0;
@@ -13,34 +11,17 @@ criado_sequencia = in_sequence;
 #region metodos
 maquina_estado = function(){
 	switch(estado){
-		case "movendo":
-			//Verificando se o objeto esta se movendo
-			if (x != _x || y != _y){
-				//Trocando de estado
-				estado = "movendo"
-			}
-			else{
-				//Trocando de estado
-				estado = "carregando";
-			}
-		break;
-		
 		case "carregando":
+			//Aumentando o timer de carregamento
+			timer_tiro++
+			
 			//Verificando se o timer chegou no limite de tempo
-			if (x != _x || y != _y){
-				estado = "movendo"
-			}
-			else{
-				//Aumentando o timer de carregamento
-				timer_tiro++
-				
-				if(timer_tiro >= espera_tiro){
-					//Trocando de estado
-					estado = "atirando";
+			if(timer_tiro >= espera_tiro){
+				//Trocando de estado
+				estado = "atirando";
 					
-					//Zerando o timer		
-					timer_tiro = 0;
-				}
+				//Zerando o timer		
+				timer_tiro = 0;
 			}
 		break;
 		
@@ -53,9 +34,11 @@ maquina_estado = function(){
 		break;
 	}
 	
-	//Verificando a posição atual
-	_x = x
-	_y = y
+	//Verificando se o inimigo não esta mais na sequencia e o destruindo
+	if(!in_sequence){
+		instance_destroy()
+		global.qtd_inimigos -= 1;
+	}
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida
@@ -70,7 +53,7 @@ morrendo = function(){
 	//Verificando se o inimigo morreu
 	if vida == 0{
 		//Roando a função de se destruir
-		sendo_destruido(obj_explosao_3)
+		sendo_destruido(obj_mt_oni)
 		
 		//Fazemdo a tela termer
 		screenshake(10);

@@ -13,8 +13,8 @@
     "path":"folders/Objects/Inimigos.yy",
   },
   "parentObjectId":{
-    "name":"obj_tiro_inimigo",
-    "path":"objects/obj_tiro_inimigo/obj_tiro_inimigo.yy",
+    "name":"obj_entidade_tiro_inimigo",
+    "path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

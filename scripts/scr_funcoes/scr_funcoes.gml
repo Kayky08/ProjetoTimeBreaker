@@ -3,6 +3,8 @@ global.debug = false;
 global.pontos = 0;
 global.musica = false;
 global.fase_anterior = room;
+global.qtd_inimigos = 0;
+global.destino = rm_teste;
 #endregion
 
 #region funções
@@ -45,5 +47,8 @@ function atirar(tiro,tiro_velocidade,tiro_som,_x = 0,_y = 0){
 	
 	//Dando play no som
 	audio_play_sound(tiro_som,1,false);
+}
+function mudar_room(){
+	room_goto(global.destino);
 }
 #endregion

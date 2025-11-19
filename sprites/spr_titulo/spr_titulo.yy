@@ -1,10 +1,10 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_titulo",
   "bboxMode":0,
-  "bbox_bottom":106,
+  "bbox_bottom":117,
   "bbox_left":0,
-  "bbox_right":129,
+  "bbox_right":227,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,18 +12,18 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"83e587c3-40a3-4ebc-9dd6-1953f8d77786","name":"83e587c3-40a3-4ebc-9dd6-1953f8d77786","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"89513f9a-6dc2-475b-95d6-f620e8e9aeff","name":"89513f9a-6dc2-475b-95d6-f620e8e9aeff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":107,
+  "height":118,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"02103c5b-7690-4d23-b831-a418c09797bb","blendMode":0,"displayName":"default","isLocked":false,"name":"02103c5b-7690-4d23-b831-a418c09797bb","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"0830527c-d26c-4b0a-8164-d00fc42ac3e6","blendMode":0,"displayName":"default","isLocked":false,"name":"0830527c-d26c-4b0a-8164-d00fc42ac3e6","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_titulo",
   "nineSlice":null,
-  "origin":0,
+  "origin":4,
   "parent":{
     "name":"Botoes",
     "path":"folders/Sprites/Botoes.yy",
@@ -71,14 +71,14 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"83e587c3-40a3-4ebc-9dd6-1953f8d77786","path":"sprites/spr_titulo/spr_titulo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"11e56373-2cc8-4fda-850e-25c4e248a541","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"89513f9a-6dc2-475b-95d6-f620e8e9aeff","path":"sprites/spr_titulo/spr_titulo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"92d0b857-dad6-4014-a528-e74e8c76648d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":114,
+    "yorigin":59,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
@@ -88,5 +88,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":130,
+  "width":228,
 }

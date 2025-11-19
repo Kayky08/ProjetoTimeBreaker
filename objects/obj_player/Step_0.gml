@@ -2,7 +2,7 @@
 if keyboard_check_released(vk_tab) global.debug = !global.debug;
 
 //controlando o player
-controla_player();
+maquina_estado();
 
 //fazendo o player perder 1 de vida
 if keyboard_check_pressed(vk_enter) perde_vida();
