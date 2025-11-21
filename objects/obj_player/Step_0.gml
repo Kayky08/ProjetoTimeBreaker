@@ -1,12 +1,12 @@
-//Mostrando a parte de Debug
-if keyboard_check_released(vk_tab) global.debug = !global.debug;
+if (global.pause) exit;
 
 //controlando o player
 maquina_estado();
 
-//fazendo o player perder 1 de vida
-if keyboard_check_pressed(vk_enter) perde_vida();
-
 //trocando o nivel da arma
-if(keyboard_check_pressed(vk_up)) level_tiro += 1;
-if(keyboard_check_pressed(vk_down)) level_tiro -= 1;
+if(keyboard_check_pressed(ord("N"))) level_tiro += 1;
+if(keyboard_check_pressed(ord("M"))) level_tiro -= 1;
+
+//Tocando efeitos
+retorna_mola(.3)
+contador_efeito_dano()

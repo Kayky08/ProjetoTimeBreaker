@@ -1,3 +1,4 @@
+
 #region variaveis
 //
 image_xscale = 1.2;
@@ -19,22 +20,33 @@ vidas = 3;
 escudos = 3;
 meu_escudo = noone;
 
-//Variavel da espera do tiro
+//Variavel de tempo de espera
 espera_tiro = 20;
 espera_debuff = 60;
 
-//Variavel do timer do tiro
+//Variavel de timers
 timer_tiro = 0;
 timer_debuff = 0
 
 //Level do meu tiro
 level_tiro = 1;
+atirar_automatico = false
 
 //Varivel de invencibilidade
 tempo_invensivel = game_get_speed(gamespeed_fps);
 timer_invensivel = 0;
 
+//Variavel do estado
 estado = "normal"
+
+//Variavel debuff
+invertido = false
+
+//Variaveis de escala
+inicia_efeito_mola();
+
+//Variavel para verificar se tomou dano
+inicia_efeito_dano();
 #endregion
 
 #region metodos
@@ -49,10 +61,11 @@ maquina_estado = function(){
 			
 			vspeed = -vel
 			
-			if(timer_debuff>= espera_debuff){
-				timer_debuff= 0
-				
+			if(timer_debuff >= espera_debuff){
 				estado = "normal"
+				
+				vspeed = 0
+				timer_debuff = 0
 			}
 		break;
 		
@@ -66,21 +79,21 @@ maquina_estado = function(){
 			}
 		break;
 		
-		case "controles_invertidos":
+		case "invertido":
 			timer_debuff++
 			
-			controla_player_invertido()
+			invertido = true
+			controla_player();
 			
 			if(timer_debuff>= espera_debuff){
 				timer_debuff= 0
 				
-				vspeed = 0
+				invertido = false
 				estado = "normal"
 			}
 		break;
 	}
 }
-
 controla_player = function(){
 	//diminundo o timer do tiro
 	timer_tiro--;
@@ -89,16 +102,29 @@ controla_player = function(){
 	timer_invensivel--;
 	
 	//definindo os botoes das teclas
-	var _cima, _baixo, _esq, _dir, _atirar;
+	var _cima, _baixo, _esq, _dir, _atirar, _escudo, _atirar_automatico;
 
-	_cima = keyboard_check(ord("W"));
-	_baixo = keyboard_check(ord("S"));
-	_esq = keyboard_check(ord("A")) || keyboard_check(vk_left);
-	_dir = keyboard_check(ord("D")) || keyboard_check(vk_right);
-	_atirar = keyboard_check(vk_space) || mouse_check_button(mb_left);
+	_atirar = keyboard_check(vk_space) || mouse_check_button(mb_left);	
+	_atirar_automatico= keyboard_check_pressed(ord("F"));
+	_escudo = keyboard_check_pressed(ord("E")) || mouse_check_button(mb_right);
+
+	if(!invertido){
+		_cima = keyboard_check(ord("W")) || keyboard_check(vk_up);
+		_baixo = keyboard_check(ord("S")) || keyboard_check(vk_down);
+		_esq = keyboard_check(ord("A")) || keyboard_check(vk_left);
+		_dir = keyboard_check(ord("D")) || keyboard_check(vk_right);
+	}
+	else{
+		_cima = keyboard_check(ord("S")) || keyboard_check(vk_down);
+		_baixo = keyboard_check(ord("W")) || keyboard_check(vk_up);
+		_esq = keyboard_check(ord("D")) || keyboard_check(vk_right);
+		_dir = keyboard_check(ord("A")) || keyboard_check(vk_left);
+	}
+	
+	if _atirar_automatico atirar_automatico = !atirar_automatico
 	
 	//fazendo o player usar o escudo
-	if keyboard_check_pressed(ord("E")) usa_escudo();
+	if _escudo usa_escudo();
 	
 	//chamando o metodo de criar o escudo
 	com_escudo()
@@ -141,138 +167,85 @@ controla_player = function(){
 	}
 	
 	//Atirando
-	if (_atirar && timer_tiro <= 0){
+	if(!atirar_automatico){
+		if (_atirar && timer_tiro <= 0){
 		
-		if(level_tiro == 1){
-			//Chama a função do tiro
-			tiro_1();
+			//Mudando o tamabnho do player
+			efeito_mola(.8,1.2);
+		
+			if(level_tiro == 1){
+				//Chama a função do tiro
+				tiro_1();
 			
-			//Toca o som
-			audio_play_sound(snd_tiro_1,1,false);
+				//Toca o som
+				audio_play_sound(snd_tiro_1,1,false);
 			
-			//Define o tempo de disparo
-			timer_tiro = espera_tiro;
+				//Define o tempo de disparo
+				timer_tiro = espera_tiro;
 			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level1
+				//Troca a sprite do player
+				//sprite_index = spr_player_level1
+			}
+			if(level_tiro == 2){
+				tiro_2();
+				audio_play_sound(snd_tiro_1,1,false);
+			
+				timer_tiro = espera_tiro * .7;
+			
+				//Troca a sprite do player
+				//sprite_index = spr_player_level2
+			}
+			if(level_tiro == 3){
+				tiro_3();
+				audio_play_sound(snd_tiro_1,1,false);
+			
+				timer_tiro = espera_tiro * .5;
+			
+				//Troca a sprite do player
+				//sprite_index = spr_player_level3
+			}
 		}
-		if(level_tiro == 2){
-			tiro_2();
-			audio_play_sound(snd_tiro_1,1,false);
-			
-			timer_tiro = espera_tiro * .7;
-			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level2
-		}
-		if(level_tiro == 3){
-			tiro_3();
-			audio_play_sound(snd_tiro_1,1,false);
-			
-			timer_tiro = espera_tiro * .5;
-			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level3
-		}
-	}
-}
-
-controla_player_invertido = function(){
-	//diminundo o timer do tiro
-	timer_tiro--;
-	
-	//diminuindo o timer da invencibilidade
-	timer_invensivel--;
-	
-	//definindo os botoes das teclas
-	var _cima, _baixo, _esq, _dir, _atirar;
-
-	_cima = keyboard_check(ord("S"));
-	_baixo = keyboard_check(ord("W"));
-	_esq = keyboard_check(ord("D")) || keyboard_check(vk_left);
-	_dir = keyboard_check(ord("A")) || keyboard_check(vk_right);
-	_atirar = keyboard_check(vk_space) || mouse_check_button(mb_left);
-	
-	//fazendo o player usar o escudo
-	if keyboard_check_pressed(ord("E")) usa_escudo();
-	
-	//chamando o metodo de criar o escudo
-	com_escudo()
-	
-	//fazendo o player mover
-	//Horizontal
-	var _velh = _dir - _esq;
-	x += _velh * vel;
-	
-	//if(x <= sprite_width/2) x = sprite_width/2;
-	//if(x >= room_width - sprite_width/2) x = room_width - sprite_width/2;
-	
-	x = clamp(x, sprite_width/2, room_width - sprite_width/2)
-	
-	//Vertical
-	var _velv = _baixo - _cima;
-	y += _velv * vel;
-	
-	//Limitando a posição vertical
-	y = clamp(y,0, room_height - 19);
-	
-	//Fazendo ele mudar de lado
-	var move = 0
-	
-	if (_dir){
-		move = 1;
-	}
-	else if (_esq){
-		move = -1
-	}
-
-	if (move < 0){
-		sprite_index = spr_player_level1_esq
-	}
-	else if (move > 0){
-		sprite_index = spr_player_level1_dir
 	}
 	else{
-		sprite_index = spr_player_level1_par	
-	}
-	
-	//Atirando
-	if (_atirar && timer_tiro <= 0){
+		if (timer_tiro <= 0){
 		
-		if(level_tiro == 1){
-			//Chama a função do tiro
-			tiro_1();
+			//Mudando o tamabnho do player
+			efeito_mola(.8,1.2);
+		
+			if(level_tiro == 1){
+				//Chama a função do tiro
+				tiro_1();
 			
-			//Toca o som
-			audio_play_sound(snd_tiro_1,1,false);
+				//Toca o som
+				audio_play_sound(snd_tiro_1,1,false);
 			
-			//Define o tempo de disparo
-			timer_tiro = espera_tiro;
+				//Define o tempo de disparo
+				timer_tiro = espera_tiro;
 			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level1
-		}
-		if(level_tiro == 2){
-			tiro_2();
-			audio_play_sound(snd_tiro_1,1,false);
+				//Troca a sprite do player
+				//sprite_index = spr_player_level1
+			}
+			if(level_tiro == 2){
+				tiro_2();
+				audio_play_sound(snd_tiro_1,1,false);
 			
-			timer_tiro = espera_tiro * .7;
+				timer_tiro = espera_tiro * .7;
 			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level2
-		}
-		if(level_tiro == 3){
-			tiro_3();
-			audio_play_sound(snd_tiro_1,1,false);
+				//Troca a sprite do player
+				//sprite_index = spr_player_level2
+			}
+			if(level_tiro == 3){
+				tiro_3();
+				audio_play_sound(snd_tiro_1,1,false);
 			
-			timer_tiro = espera_tiro * .5;
+				timer_tiro = espera_tiro * .5;
 			
-			//Troca a sprite do player
-			//sprite_index = spr_player_level3
+				//Troca a sprite do player
+				//sprite_index = spr_player_level3
+			}
 		}
 	}
 }
-
 tiro_1 = function(){
 	//Criando o tiro na camada dele
 	//Salvando a identidade (id) desse tiro
@@ -280,31 +253,27 @@ tiro_1 = function(){
 		
 	//Personalizando o tiro
 	//Fazendo o tiro ir para frente
-	_tiro.vspeed = -10;
+	//_tiro.vspeed = -10;
 
 	//Fazendo reproduzir o audio
 }
-
 tiro_2 = function(){
-	var _tiro = instance_create_layer(x - 12,y,"Tiro",obj_tiro_player);
-	_tiro.vspeed = -10;
+	var _tiro = instance_create_layer(x - 12,y - 5,"Tiro",obj_tiro_player);
+	//_tiro.vspeed = -10;
 	
-	_tiro = instance_create_layer(x + 12,y,"Tiro",obj_tiro_player);
-	_tiro.vspeed = -10;
+	_tiro = instance_create_layer(x + 12,y - 5,"Tiro",obj_tiro_player);
+	//_tiro.vspeed = -10;
 }
-
 tiro_3 = function(){
 	tiro_1();
 	tiro_2()
 }
-
 ganha_level_tiro = function(){
 	//fazendo com que o player n passe do level 3 
 	if(level_tiro < 3){
 		level_tiro++;
 	}
 }
-
 desenha_icone = function(_qtd,_sprite,_x,_y){
 	var _espaco = 0;
 
@@ -315,16 +284,18 @@ desenha_icone = function(_qtd,_sprite,_x,_y){
 		_espaco += 45;
 	}
 }
-
 perde_vida = function(){
 	//Dando play no som
 	audio_play_sound(snd_hit,1,false);
 	
 	//Fazendo a tela tremer quando leva um dano
 	screenshake(20);
+	efeito_mola(2,.5)
 	
 	//verificando se o player esta invensivel
 	if(timer_invensivel > 0) return;
+	
+	timer_efeito_dano(5)
 	
 	//checando se o player ainda tem vida
 	if(vidas > 0){
@@ -345,7 +316,6 @@ perde_vida = function(){
 		room_goto(rm_morte);
 	}
 }
-
 usa_escudo = function(){
 	//verificando se é possivel criar um escudo
 	if(escudos >= 0 && meu_escudo == noone){
@@ -356,7 +326,6 @@ usa_escudo = function(){
 		meu_escudo = instance_create_layer(x,y,"Escudo",obj_escudo);
 	}
 }
-
 com_escudo = function(){
 	//checando se o escudo existe
 	if(instance_exists(meu_escudo)){
@@ -372,9 +341,7 @@ com_escudo = function(){
 		meu_escudo = noone;
 	}
 }
-
 morrendo = function(){
 	sendo_destruido(obj_explosao_1);
 }
-
 #endregion

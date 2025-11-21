@@ -3,11 +3,15 @@
   "%Name":"obj_tiro1_tengu",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_tiro1_tengu",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_tiro_inimigo","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"propertyId":{"name":"explosao","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"resource":{"name":"obj_exp_tiro_tengu","path":"objects/obj_exp_tiro_tengu/obj_exp_tiro_tengu.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_exp_tiro_tengu",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_tiro_inimigo","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"propertyId":{"name":"vspd","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"7",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_tiro_inimigo","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"propertyId":{"name":"dir","path":"objects/obj_entidade_tiro_inimigo/obj_entidade_tiro_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
     "name":"Inimigos",

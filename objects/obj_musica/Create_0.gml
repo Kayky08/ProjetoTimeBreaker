@@ -1,4 +1,2 @@
-if global.musica = false{
-	audio_play_sound(snd_musica1,1,true);
-	global.musica = true;
-}
+audio_stop_all();
+audio_play_sound(snd_musica1,1,true);

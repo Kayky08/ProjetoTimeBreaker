@@ -9,6 +9,10 @@ timer_tiro = 0;
 
 //Descobrindo se o inimigo esta numa sequencia
 criado_sequencia = in_sequence;
+
+//iniciando efeitos
+inicia_efeito_dano()
+inicia_efeito_mola()
 #endregion
 
 #region metodos
@@ -30,7 +34,7 @@ maquina_estado = function(){
 		
 		case "atirando":
 			//Chamando a função para criar o tiro
-			atirar(obj_tiro_alkonost,vel_tiro,snd_tiro_1,0,0)
+			atirar(obj_tiro_alkonost,snd_tiro_1,0,0)
 			
 			//Trocando de estado
 			estado = "carregando";
@@ -51,6 +55,10 @@ morrendo = function(){
 		
 		//Fazendo a tela tremer
 		screenshake(5);
+		
+		//Definindo valores dos efeitos
+		efeito_mola(2,.5)
+		timer_efeito_dano(5);
 	}
 	
 	//Verificando se o inimigo morreu

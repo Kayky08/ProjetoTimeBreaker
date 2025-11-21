@@ -4,6 +4,10 @@ global.qtd_inimigos += 1;
 //Tiro
 timer_tiro = 0;
 
+//Iniciando efeitos
+inicia_efeito_mola()
+inicia_efeito_dano()
+
 //Descobrindo se o inimigo esta numa sequencia
 criado_sequencia = in_sequence;
 #endregion
@@ -35,10 +39,10 @@ maquina_estado = function(){
 	}
 	
 	//Verificando se o inimigo não esta mais na sequencia e o destruindo
-	if(!in_sequence){
-		instance_destroy()
-		global.qtd_inimigos -= 1;
-	}
+	//if(!in_sequence){
+	//	instance_destroy()
+	//	global.qtd_inimigos -= 1;
+	//}
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida
@@ -48,6 +52,10 @@ morrendo = function(){
 		
 		//Fazendo a tela tremer
 		screenshake(5);
+		
+		//Definindo efeitos
+		efeito_mola(2,.5);
+		timer_efeito_dano(5);
 	}
 	
 	//Verificando se o inimigo morreu
