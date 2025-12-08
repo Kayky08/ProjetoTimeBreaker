@@ -35,6 +35,8 @@
     {"$GMObjectProperty":"v2","%Name":"espera_tiro","filters":[],"listItems":[],"multiselect":false,"name":"espera_tiro","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"estado","filters":[],"listItems":[],"multiselect":false,"name":"estado","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"carregando","varType":2,},
     {"$GMObjectProperty":"v2","%Name":"vel_tiro","filters":[],"listItems":[],"multiselect":false,"name":"vel_tiro","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"25","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"chance_drop","filters":[],"listItems":[],"multiselect":false,"name":"chance_drop","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"90","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"pontos","filters":[],"listItems":[],"multiselect":false,"name":"pontos","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

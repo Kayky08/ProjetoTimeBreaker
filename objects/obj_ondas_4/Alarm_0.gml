@@ -1,5 +1,5 @@
 //Criando a primeira onda
-layer_sequence_create("Seq_inimigos",0,0,sq_wave_19);
+layer_sequence_create("Seq_inimigos",0,0,sq_br_wave_1);
 
 //Veriricando se chegou no final da wave
 if(wave < array_length(ondas) - 1){

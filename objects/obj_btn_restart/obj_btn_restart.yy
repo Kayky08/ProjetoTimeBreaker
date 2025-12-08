@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_btn_start",
-    "path":"sprites/spr_btn_start/spr_btn_start.yy",
+    "name":"spr_btn_restart",
+    "path":"sprites/spr_btn_restart/spr_btn_restart.yy",
   },
   "spriteMaskId":null,
   "visible":true,

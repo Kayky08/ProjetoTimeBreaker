@@ -32,8 +32,8 @@ maquina_estado = function(){
 		case "atirando":
 			//Chamando a função para criar o tiro
 			atirar(obj_tiro_koschei,snd_tiro_1,0,0)
-			atirar(obj_tiro_koschei,snd_tiro_1,0,43)
-			atirar(obj_tiro_koschei,snd_tiro_1,0,86)
+			atirar(obj_tiro_koschei,snd_mudo,0,43)
+			atirar(obj_tiro_koschei,snd_mudo,0,86)
 
 			
 			//Trocando de estado
@@ -42,10 +42,10 @@ maquina_estado = function(){
 	}
 	
 	//Verificando se o inimigo não esta mais na sequencia e o destruindo
-	//if(!in_sequence){
-	//	instance_destroy()
-	//	global.qtd_inimigos -= 1;
-	//}
+	if(!in_sequence){
+		instance_destroy()
+		global.qtd_inimigos -= 1;
+	}
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida
@@ -70,10 +70,10 @@ morrendo = function(){
 		screenshake(10);
 		
 		//Dando pontos
-		global.pontos += 100;
+		global.pontos += pontos;
 		
 		//Fazendo ele dropar o power up
-		drop(90,obj_power_up);
+		drop(chance_drop,obj_power_up);
 	}
 }
 #endregion

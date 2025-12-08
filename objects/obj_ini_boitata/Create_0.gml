@@ -32,13 +32,13 @@ maquina_estado = function(){
 		case "atirando":
 			//Chamando a função para criar o tiro
 			atirar(obj_tiro_boitata,snd_tiro_1,24,0)
-			atirar(obj_tiro_boitata,snd_tiro_1,-24,0)
-			atirar(obj_tiro_boitata,snd_tiro_1,48,22)
-			atirar(obj_tiro_boitata,snd_tiro_1,-48,22)
-			atirar(obj_tiro_boitata,snd_tiro_1,48,44)
-			atirar(obj_tiro_boitata,snd_tiro_1,-48,44)
-			atirar(obj_tiro_boitata,snd_tiro_1,24,66)
-			atirar(obj_tiro_boitata,snd_tiro_1,-24,66)
+			atirar(obj_tiro_boitata,snd_mudo,-24,0)
+			atirar(obj_tiro_boitata,snd_mudo,48,22)
+			atirar(obj_tiro_boitata,snd_mudo,-48,22)
+			atirar(obj_tiro_boitata,snd_mudo,48,44)
+			atirar(obj_tiro_boitata,snd_mudo,-48,44)
+			atirar(obj_tiro_boitata,snd_mudo,24,66)
+			atirar(obj_tiro_boitata,snd_mudo,-24,66)
 			
 			//Trocando de estado
 			estado = "carregando";
@@ -46,10 +46,10 @@ maquina_estado = function(){
 	}
 	
 	//Verificando se o inimigo não esta mais na sequencia e o destruindo
-	//if(!in_sequence){
-	//	instance_destroy()
-	//	global.qtd_inimigos -= 1;
-	//}
+	if(!in_sequence){
+		instance_destroy()
+		global.qtd_inimigos -= 1;
+	}
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida
@@ -74,10 +74,10 @@ morrendo = function(){
 		screenshake(10);
 		
 		//Dando pontos
-		global.pontos += 100;
+		global.pontos += pontos;
 		
 		//Fazendo ele dropar o power up
-		drop(90,obj_power_up);
+		drop(chance_drop,obj_power_up);
 	}
 }
 #endregion

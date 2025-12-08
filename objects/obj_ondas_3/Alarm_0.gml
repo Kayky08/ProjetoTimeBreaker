@@ -14,5 +14,5 @@ if(wave < array_length(ondas) - 1){
 	alarm[0] = 400
 }
 else{
-	alarm[1] = game_get_speed(gamespeed_fps) * 8;
+	room_goto_next();
 }

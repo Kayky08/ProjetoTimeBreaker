@@ -20,36 +20,18 @@ inicia_efeito_mola();
 #region metodos
 maquina_estado = function(){
 	switch(estado){
-		case "movendo":
-			//Verificando se o objeto esta se movendo
-			if (x != _x || y != _y){
-				//Trocando de estado
-				estado = "movendo"
-			}
-			else{
-				//Trocando de estado
-				estado = "carregando";
-			}
-		break;
-		
 		case "carregando":
-			//Verificando se o objeto esta se movendo
-			if (x != _x || y != _y){
+			
+			//Aumentando o timer de carregamento
+			timer_tiro++
+
+			//Verificando se o timer chegou no limite de tempo
+			if(timer_tiro >= espera_tiro){
 				//Trocando de estado
-				estado = "movendo"
-			}
-			else{
-				//Aumentando o timer de carregamento
-				timer_tiro++
+				estado = choose("atirando","atirando2");
 
-				//Verificando se o timer chegou no limite de tempo
-				if(timer_tiro >= espera_tiro){
-					//Trocando de estado
-					estado = "atirando" //schoose("atirando","atirando2");
-
-					//Zerando o timer
-					timer_tiro = 0;
-				}
+				//Zerando o timer
+				timer_tiro = 0;
 			}
 		break;
 		
@@ -84,6 +66,12 @@ maquina_estado = function(){
 	//Verificando a posição do inimigo
 	_x = x
 	_y = y
+	
+	//Verificando se o inimigo não esta mais na sequencia e o destruindo
+	if(!in_sequence){
+		instance_destroy()
+		global.qtd_inimigos -= 1;
+	}
 }
 morrendo = function(){
 	//Verificando se o inimigo ainda possui vida
@@ -108,10 +96,10 @@ morrendo = function(){
 		screenshake(10);
 		
 		//Dando pontos
-		global.pontos += 100;
+		global.pontos += pontos;
 		
 		//Fazendo ele dropar o power up
-		drop(90,obj_power_up);
+		drop(chance_drop,obj_power_up);
 	}
 }
 #endregion

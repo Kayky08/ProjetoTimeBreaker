@@ -14,7 +14,5 @@ if(wave < array_length(ondas) - 1){
 	alarm[0] = 400
 }
 else{
-	if !instance_exists(obj_inimigo) || !instance_exists(obj_inimigo_2){
-		room_goto_next();
-	}
+	room_goto_next();
 }

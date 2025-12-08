@@ -1,4 +1,3 @@
-
 #region variaveis
 //
 image_xscale = 1.2;
@@ -90,6 +89,19 @@ maquina_estado = function(){
 				
 				invertido = false
 				estado = "normal"
+			}
+		break;
+		
+		case "medo":
+			timer_debuff++
+			
+			vspeed = vel
+			
+			if(timer_debuff >= espera_debuff){
+				estado = "normal"
+				
+				vspeed = 0
+				timer_debuff = 0
 			}
 		break;
 	}
@@ -279,9 +291,15 @@ desenha_icone = function(_qtd,_sprite,_x,_y){
 
 	//desenhando a vida
 	//Usando um laço de repetição para desenhar as vidas
-	repeat(_qtd){	
-		draw_sprite_ext(_sprite,0,_x + _espaco,_y, 1, 1, 0, c_white, 0.5);
-		_espaco += 45;
+	repeat(_qtd){
+		var _h = display_get_gui_height() * .03;
+		var _w = display_get_gui_width() * .03;
+		
+		//draw_sprite_ext(_sprite,0,_x + _espaco,_y, 1, 1, 0, c_white, 0.5);
+		
+		draw_sprite_stretched_ext(_sprite, 0, _x + _espaco,_y,_w,_h,c_white,0.5)
+		
+		_espaco += 25;
 	}
 }
 perde_vida = function(){

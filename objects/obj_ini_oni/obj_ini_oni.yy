@@ -11,6 +11,7 @@
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_inimigo","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"propertyId":{"name":"vida","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_inimigo","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"propertyId":{"name":"vel_tiro","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entidade_inimigo","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"propertyId":{"name":"chance_drop","path":"objects/obj_entidade_inimigo/obj_entidade_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"80",},
   ],
   "parent":{
     "name":"Inimigos",

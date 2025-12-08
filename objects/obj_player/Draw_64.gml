@@ -19,10 +19,10 @@ var _gui_height = display_get_gui_height();
 var _gui_width = display_get_gui_width();	
 
 //Desenhando as vidas
-desenha_icone(vidas,spr_incone_vida,60,_gui_height - 60);
+desenha_icone(vidas,spr_incone_vida,40,_gui_height - 35);
 
 //Desenhando os escudos
-desenha_icone(escudos,spr_icone_escudo,60,_gui_height - 100);
+desenha_icone(escudos,spr_icone_escudo,40,_gui_height - 60);
 
 //Desenhando o pontos
-draw_text(_gui_width-120,_gui_height - 80,string(global.pontos));
+draw_text(_gui_width-90,_gui_height - 50,string(global.pontos));

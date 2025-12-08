@@ -1,5 +1,5 @@
 ///Criando a primeria onda
-ondas = [sq_wave_19,sq_wave_20,sq_wave_21,sq_wave_22]
+ondas = [sq_br_wave_1,sq_br_wave_2,sq_br_wave_3,sq_br_wave_4]
 
 global.pontos = 0;
 

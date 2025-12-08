@@ -26,9 +26,9 @@ morrendo = function(){
 		sendo_destruido(obj_mt_karakasa);
 		
 		screenshake(10);
-		global.pontos += 200;
+		global.pontos += pontos;
 		
-		drop(50,obj_power_up);
+		drop(chance_drop,obj_power_up);
 	}
 }
 #endregion

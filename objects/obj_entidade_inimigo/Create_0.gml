@@ -67,10 +67,10 @@ morrendo = function(){
 		screenshake(10);
 		
 		//Dando pontos
-		global.pontos += 100;
+		global.pontos += pontos;
 		
 		//Fazendo ele dropar o power up
-		drop(90,obj_power_up);
+		drop(chance_drop,obj_power_up);
 	}
 }
 #endregion
